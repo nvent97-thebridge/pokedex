@@ -1,5 +1,5 @@
-import { PokemonList } from "./components/Organisms/PokemonList";
-import "./App.css";
+import { PokemonList } from "./components/Organisms/PokemonList/PokemonList";
+import "./App.scss";
 
 function App() {
   return (
