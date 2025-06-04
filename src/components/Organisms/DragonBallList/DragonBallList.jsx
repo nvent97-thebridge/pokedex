@@ -1,10 +1,12 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { ThemeContext } from "../../../contexts/ThemeContext";
 import { CharacterItem } from "../../Molecules/CharacterItem/CharacterItem";
 import "./DragonBallList.scss";
 
 const DragonBallList = () => {
   const [characters, setCharacters] = useState([]);
+  const theme = useContext(ThemeContext);
 
   useEffect(() => {
     axios
@@ -17,10 +19,16 @@ const DragonBallList = () => {
 
   return (
     <div>
-      <h2>Dragon Ball</h2>
+      <h2>{theme}</h2>
       <div className="charactersContainer">
         {characters.map((character) => {
-          return <CharacterItem name={character.name} img={character.image} key={character.id} />;
+          return (
+            <CharacterItem
+              name={character.name}
+              img={character.image}
+              key={character.id}
+            />
+          );
         })}
       </div>
     </div>
