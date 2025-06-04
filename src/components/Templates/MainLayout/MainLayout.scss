@@ -1,3 +1,11 @@
 .container{
-    background-color: red;
+    display: flex;
+}
+
+.leftContent{
+    width: 50%;
+}
+
+.rightContent{
+    width: 50%;
 }
