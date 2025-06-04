@@ -3,15 +3,15 @@ import { ThemeContext } from "../../../contexts/ThemeContext";
 import "./CharacterItem.scss"
 
 const CharacterItem = ({ name, img }) => {
-  const theme = useContext(ThemeContext)
+  const {theme, setTheme} = useContext(ThemeContext)
 
   return (
-    <div className={"pokemonItemContainer"}>
+    <div onClick={() => setTheme("dark")} className={"pokemonItemContainer"}>
       <img
         src={img}
         alt={`${name}.png`}
       />
-      <p>{name}</p>
+      <p>{theme}</p>
     </div>
   );
 };

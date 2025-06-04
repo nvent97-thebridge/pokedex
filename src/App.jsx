@@ -4,10 +4,13 @@ import { DragonBallList } from "./components/Organisms/DragonBallList/DragonBall
 import { MainLayout } from "./components/Templates/MainLayout/MainLayout";
 import { ThemeContext } from "./contexts/ThemeContext";
 import "./App.scss";
+import { useState } from "react";
 
 function App() {
+  const [theme, setTheme] = useState('light')
+
   return (
-    <ThemeContext.Provider value={'light'}>
+    <ThemeContext.Provider value={{theme, setTheme}}>
     <BrowserRouter>
       <Routes>
         <Route

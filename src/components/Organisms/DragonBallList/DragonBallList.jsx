@@ -6,7 +6,7 @@ import "./DragonBallList.scss";
 
 const DragonBallList = () => {
   const [characters, setCharacters] = useState([]);
-  const theme = useContext(ThemeContext);
+  const {theme} = useContext(ThemeContext);
 
   useEffect(() => {
     axios
