@@ -1,12 +1,15 @@
-import "./CharacterItem.scss";
+import "./CharacterItem.scss"
 
-const CharacterItem = ({name, img}) => {
+const CharacterItem = ({ name, img }) => {
   return (
-    <div className="characterItem">
-        <p>{name}</p>
-        <img src={img} alt={`Image of ${name}`}/>
+    <div className="pokemonItemContainer">
+      <img
+        src={img}
+        alt={`${name}.png`}
+      />
+      <p>{name}</p>
     </div>
-  )
-}
+  );
+};
 
-export {CharacterItem}
+export { CharacterItem };
