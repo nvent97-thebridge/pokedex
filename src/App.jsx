@@ -17,7 +17,7 @@ function App() {
           path="/"
           element={
             <MainLayout
-              leftContent={<DragonBallList />}
+              leftContent={<DragonBallList/>}
               rightContent={<PokemonList />}
             />
           }

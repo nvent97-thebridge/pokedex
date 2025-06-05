@@ -19,7 +19,7 @@ const DragonBallList = () => {
 
   return (
     <div>
-      <h2>{theme}</h2>
+      <h2>Dragon Ball</h2>
       <div className="charactersContainer">
         {characters.map((character) => {
           return (
