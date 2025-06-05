@@ -1,20 +1,12 @@
-import axios from "axios";
-import { useEffect, useState, useContext } from "react";
-import { ThemeContext } from "../../../contexts/ThemeContext";
 import { CharacterItem } from "../../Molecules/CharacterItem/CharacterItem";
+import { useFetchCharactersData } from "../../../hooks/useFetchCharactersData";
 import "./DragonBallList.scss";
 
 const DragonBallList = () => {
-  const [characters, setCharacters] = useState([]);
-
-  useEffect(() => {
-    axios
-      .get("https://dragonball-api.com/api/characters")
-      .then((res) => res.data)
-      .then((characterList) => {
-        setCharacters(characterList.items);
-      });
-  }, []);
+  const { characters } = useFetchCharactersData({
+    url: "https://dragonball-api.com/api/characters",
+    resultsAttribute: "items",
+  });
 
   return (
     <div>

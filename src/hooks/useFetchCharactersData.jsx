@@ -1,17 +1,17 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 
-const useFetchCharactersData = () => {
+const useFetchCharactersData = ({url, resultsAttribute}) => {
   const [characters, setCharacters] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     axios
-      .get("https://pokeapi.co/api/v2/pokemon/")
+      .get(url)
       .then((data) => data.data)
-      .then((pokemonList) => {
-        setLoading(false)
-        setCharacters(pokemonList.results);
+      .then((charactersList) => {
+          setCharacters(charactersList[resultsAttribute]);
+          setLoading(false)
       });
   }, []);
 
