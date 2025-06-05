@@ -1,25 +1,15 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
 import { CharacterItem } from "../../Molecules/CharacterItem/CharacterItem";
+import { useFetchCharactersData } from "../../../hooks/useFetchCharactersData";
 import "./PokemonList.scss";
 
 const PokemonList = () => {
-  const [pokemons, setPokemons] = useState([]);
-
-  useEffect(() => {
-    axios
-      .get("https://pokeapi.co/api/v2/pokemon/")
-      .then((data) => data.data)
-      .then((pokemonList) => {
-        setPokemons(pokemonList.results);
-      });
-  }, []);
+  const {characters, loading} = useFetchCharactersData()
 
   return (
     <div>
       <h2>PokemonList</h2>
       <div className="pokemonsContainer">
-        {pokemons.map((pokemon, index) => (
+        {characters.map((pokemon, index) => (
           <CharacterItem name={pokemon.name} img={`https://img.pokemondb.net/sprites/home/normal/${pokemon.name}.png`} key={index} />
         ))}
       </div>
